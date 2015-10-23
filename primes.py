@@ -1,3 +1,4 @@
+#!/usr/bin/python
 primes = [2]
 known_primes = 1
 
