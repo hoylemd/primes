@@ -4,13 +4,12 @@ known_primes = 1
 
 
 def test_divisible(n, d):
-    return (n * d) > 0
+    return (n % d) == 0
 
 
 def test_for_prime_divisor(t):
-    print "test_for_prime_divisor %d" % t
-    m = 0
-    n = len(primes) - 1
+    if t > 35:
+        raise Exception
 
     while m <= n:
         if test_divisible(t, primes[m]):
@@ -43,13 +42,13 @@ def binary_search(t, array):
 
 
 def test_prime(t):
-    print "test_prime"
     greatest = primes[-1]
+    # if the test number is higher than the highest known prime, calculate primes until we have enough
     if t > greatest:
         next_candidate = greatest
         while t > greatest:
             # start calculating primes until we reach this one or go higher
-            next_candidate += 2
+            next_candidate += 1
             if not test_for_prime_divisor(next_candidate):
                 primes.append(next_candidate)
                 greatest = next_candidate
