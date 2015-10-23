@@ -3,8 +3,8 @@ primes = [2]
 known_primes = 1
 
 
-def test_divisible(n, d):
-    return (n % d) == 0
+def test_divisible(numerator, divisor):
+    return (numerator % divisor) == 0
 
 
 def test_for_prime_divisor(t):
@@ -40,12 +40,13 @@ def binary_search(t, array):
         else:
             left = mid
 
-
     return False
+
 
 def test_prime(t):
     greatest = primes[-1]
-    # if the test number is higher than the highest known prime, calculate primes until we have enough
+    # if the test number is higher than the highest known prime,
+    # calculate primes until we have enough
     if t > greatest:
         next_candidate = greatest
         while t > greatest:
@@ -71,4 +72,4 @@ verboseTestPrime(20)
 
 verboseTestPrime(7)
 
-#verboseTestPrime(101)
+# verboseTestPrime(101)
