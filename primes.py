@@ -66,3 +66,9 @@ def verboseTestPrime(t):
 verboseTestPrime(2)
 
 verboseTestPrime(3)
+
+verboseTestPrime(20)
+
+verboseTestPrime(7)
+
+#verboseTestPrime(101)
