@@ -1,10 +1,10 @@
 #! /usr/bin/python
 
-from primes import verboseTestPrime
+import primes
 
 if (__name__ == "__main__"):
-    verboseTestPrime(2)
-    verboseTestPrime(3)
-    verboseTestPrime(20)
-    verboseTestPrime(7)
-    verboseTestPrime(101)
+    primes.verboseTestPrime(2)
+    primes.verboseTestPrime(3)
+    primes.verboseTestPrime(20)
+    primes.verboseTestPrime(7)
+    primes.verboseTestPrime(101)
