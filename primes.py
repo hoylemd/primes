@@ -29,9 +29,8 @@ def test_for_prime_divisor(t):
 def binary_search(t, array):
     left = 0
     right = len(array) - 1
-    import pdb; pdb.set_trace()
     while left <= right:
-        mid = right - left / 2
+        mid = (right - left) / 2
         if t == array[mid]:
             return True
 
