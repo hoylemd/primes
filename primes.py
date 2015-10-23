@@ -8,8 +8,8 @@ def test_divisible(numerator, divisor):
 
 
 def test_for_prime_divisor(t):
-    if t > 35:
-        raise Exception
+    if t > 99999:
+        raise Exception("going way too far!")
 
     left = 0
     right = len(primes) - 1
@@ -62,13 +62,3 @@ def test_prime(t):
 
 def verboseTestPrime(t):
     print "%d is%s prime." % (t, ('' if test_prime(t) else " not"))
-
-verboseTestPrime(2)
-
-verboseTestPrime(3)
-
-verboseTestPrime(20)
-
-verboseTestPrime(7)
-
-# verboseTestPrime(101)
