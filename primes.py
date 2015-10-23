@@ -30,14 +30,14 @@ def binary_search(t, array):
     left = 0
     right = len(array) - 1
     while left <= right:
-        mid = (right - left) / 2
+        mid = ((right - left) / 2) + left
         if t == array[mid]:
             return True
 
         if array[mid] < t:
-            right = mid
-        else:
             left = mid
+        else:
+            right = mid
 
     return False
 
