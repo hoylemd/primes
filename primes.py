@@ -11,35 +11,37 @@ def test_for_prime_divisor(t):
     if t > 35:
         raise Exception
 
-    while m <= n:
-        if test_divisible(t, primes[m]):
-            return True
-        m += 1
+    left = 0
+    right = len(primes) - 1
 
-        if test_divisible(t, primes[n]):
+    while left <= right:
+        if test_divisible(t, primes[left]):
             return True
-        n -= 1
+        left += 1
+
+        if test_divisible(t, primes[right]):
+            return True
+        right -= 1
 
     return False
 
 
 def binary_search(t, array):
-    print "binary_search"
-    m = 0
-    n = len(array) - 1
-
-    while m <= n:
-        mid = n - m / 2
+    left = 0
+    right = len(array) - 1
+    import pdb; pdb.set_trace()
+    while left <= right:
+        mid = right - left / 2
         if t == array[mid]:
             return True
 
         if array[mid] < t:
-            n = mid
+            right = mid
         else:
-            m = mid
+            left = mid
+
 
     return False
-
 
 def test_prime(t):
     greatest = primes[-1]
