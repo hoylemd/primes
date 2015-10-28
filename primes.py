@@ -1,6 +1,5 @@
 #!/usr/bin/python
-primes = [2]
-known_primes = 1
+import pickle
 
 
 def test_divisible(numerator, divisor):
@@ -12,6 +11,9 @@ def binary_search(t, array):
     right = len(array) - 1
     while left <= right:
         mid = ((right - left) / 2) + left
+        if mid == right or mid == left:
+            return False
+
         if t == array[mid]:
             return True
 
@@ -27,7 +29,12 @@ class PrimeSage(object):
     def __init__(self, data_path):
         self.data_path = data_path
 
-        self.primes = [2]
+        with open(data_path, "rb") as f:
+            self.primes = pickle.load(f)
+
+    def __del__(self):
+        with open(self.data_path, "w") as f:
+            pickle.dump(self.primes, f)
 
     def is_prime(self, sample):
         greatest = self.primes[-1]
@@ -38,9 +45,12 @@ class PrimeSage(object):
             while sample > greatest:
                 # start calculating primes until we reach this one or go higher
                 next_candidate += 1
-                if not self.has_prime_divisor(next_candidate):
+                test = self.has_prime_divisor(next_candidate)
+                if not test:
                     self.primes.append(next_candidate)
                     greatest = next_candidate
+                print "testing %d: %s" % (sample, ("is prime!" if test else "is not prime"))
+
             if sample == greatest:
                 return True
             return False
@@ -63,9 +73,3 @@ class PrimeSage(object):
             right -= 1
 
         return False
-
-sage = PrimeSage('primes.pickle')
-
-
-def verboseTestPrime(t):
-    print "%d is%s prime." % (t, ('' if sage.is_prime(t) else " not"))

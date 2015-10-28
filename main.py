@@ -2,9 +2,15 @@
 
 import primes
 
+sage = primes.PrimeSage('primes.pickle')
+
+
+def verboseTestPrime(t):
+    print "%d is%s prime." % (t, ('' if sage.is_prime(t) else " not"))
+
 if (__name__ == "__main__"):
-    primes.verboseTestPrime(2)
-    primes.verboseTestPrime(3)
-    primes.verboseTestPrime(20)
-    primes.verboseTestPrime(7)
-    primes.verboseTestPrime(101)
+    #verboseTestPrime(2)
+    #verboseTestPrime(3)
+    #verboseTestPrime(20)
+    #verboseTestPrime(7)
+    verboseTestPrime(101)
